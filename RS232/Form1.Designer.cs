@@ -1,95 +1,94 @@
-﻿namespace RS232CommunicationApp
+﻿using System.Windows.Forms;
+
+namespace RS232CommunicationApp
 {
     partial class Form1
     {
         private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.ComboBox comboBoxPorts;
-        private System.Windows.Forms.Button buttonConnect;
-        private System.Windows.Forms.Button buttonSend;
-        private System.Windows.Forms.TextBox textBoxSend;
-        private System.Windows.Forms.TextBox textBoxReceived;
-        private System.Windows.Forms.TextBox textBoxLog;
-        private System.Windows.Forms.Button buttonRefresh;
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null)) components.Dispose();
-            base.Dispose(disposing);
-        }
+        // Kontrolki
+        private System.Windows.Forms.Label labelPort, labelBaud, labelDataBits, labelParity, labelStopBits, labelFlowControl, labelTerminator, labelCustomTerminator, labelMode, labelTimeout;
+        private System.Windows.Forms.ComboBox comboBoxPorts, comboBoxBaudRate, comboBoxDataBits, comboBoxParity, comboBoxStopBits, comboBoxFlowControl, comboBoxTerminator;
+        private System.Windows.Forms.TextBox textBoxCustomTerminator, textBoxSend, textBoxReceive;
+        private System.Windows.Forms.RadioButton radioText, radioBinary;
+        private System.Windows.Forms.Button buttonSend, buttonConnect, buttonPing;
+        private System.Windows.Forms.NumericUpDown numericTimeout;
+        private System.Windows.Forms.CheckBox checkBoxUseTimeout;
 
         private void InitializeComponent()
         {
-            this.comboBoxPorts = new System.Windows.Forms.ComboBox();
-            this.buttonConnect = new System.Windows.Forms.Button();
-            this.buttonSend = new System.Windows.Forms.Button();
-            this.textBoxSend = new System.Windows.Forms.TextBox();
-            this.textBoxReceived = new System.Windows.Forms.TextBox();
-            this.textBoxLog = new System.Windows.Forms.TextBox();
-            this.buttonRefresh = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            // Inicjalizacja komponentów
+            components = new System.ComponentModel.Container();
 
-            // comboBoxPorts
-            this.comboBoxPorts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxPorts.Location = new System.Drawing.Point(12, 12);
-            this.comboBoxPorts.Name = "comboBoxPorts";
-            this.comboBoxPorts.Size = new System.Drawing.Size(121, 21);
+            // Etykiety
+            labelPort = new Label() { Text = "Port COM:", Location = new System.Drawing.Point(10, 10) };
+            labelBaud = new Label() { Text = "Baud Rate:", Location = new System.Drawing.Point(120, 10) };
+            labelDataBits = new Label() { Text = "Data Bits:", Location = new System.Drawing.Point(230, 10) };
+            labelParity = new Label() { Text = "Parity:", Location = new System.Drawing.Point(290, 10) };
+            labelStopBits = new Label() { Text = "Stop Bits:", Location = new System.Drawing.Point(380, 10) };
+            labelFlowControl = new Label() { Text = "Flow Control:", Location = new System.Drawing.Point(470, 10) };
 
-            // buttonRefresh
-            this.buttonRefresh.Location = new System.Drawing.Point(139, 12);
-            this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
-            this.buttonRefresh.Text = "Odśwież";
-            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            labelTerminator = new Label() { Text = "Terminator:", Location = new System.Drawing.Point(10, 60) };
+            labelCustomTerminator = new Label() { Text = "Własny:", Location = new System.Drawing.Point(120, 60) };
 
-            // buttonConnect
-            this.buttonConnect.Location = new System.Drawing.Point(220, 12);
-            this.buttonConnect.Name = "buttonConnect";
-            this.buttonConnect.Size = new System.Drawing.Size(75, 23);
-            this.buttonConnect.Text = "Połącz";
-            this.buttonConnect.Click += new System.EventHandler(this.buttonConnect_Click);
+            labelMode = new Label() { Text = "Tryb:", Location = new System.Drawing.Point(180, 60) };
+            labelTimeout = new Label() { Text = "Timeout (ms):", Location = new System.Drawing.Point(380, 60) };
 
-            // textBoxSend
-            this.textBoxSend.Location = new System.Drawing.Point(12, 50);
-            this.textBoxSend.Name = "textBoxSend";
-            this.textBoxSend.Size = new System.Drawing.Size(283, 20);
+            // ComboBoxy
+            comboBoxPorts = new ComboBox() { Location = new System.Drawing.Point(10, 30), Width = 100 };
+            comboBoxBaudRate = new ComboBox() { Location = new System.Drawing.Point(120, 30), Width = 100 };
+            comboBoxDataBits = new ComboBox() { Location = new System.Drawing.Point(230, 30), Width = 50 };
+            comboBoxParity = new ComboBox() { Location = new System.Drawing.Point(290, 30), Width = 80 };
+            comboBoxStopBits = new ComboBox() { Location = new System.Drawing.Point(380, 30), Width = 80 };
+            comboBoxFlowControl = new ComboBox() { Location = new System.Drawing.Point(470, 30), Width = 100 };
 
-            // buttonSend
-            this.buttonSend.Location = new System.Drawing.Point(301, 48);
-            this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(75, 23);
-            this.buttonSend.Text = "Wyślij";
-            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
+            comboBoxTerminator = new ComboBox() { Location = new System.Drawing.Point(10, 80), Width = 100 };
+            textBoxCustomTerminator = new TextBox() { Location = new System.Drawing.Point(120, 80), Width = 50 };
 
-            // textBoxReceived
-            this.textBoxReceived.Location = new System.Drawing.Point(12, 85);
-            this.textBoxReceived.Multiline = true;
-            this.textBoxReceived.Name = "textBoxReceived";
-            this.textBoxReceived.ReadOnly = true;
-            this.textBoxReceived.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxReceived.Size = new System.Drawing.Size(364, 100);
+            // RadioButtony
+            radioText = new RadioButton() { Location = new System.Drawing.Point(180, 80), Text = "Text", Checked = true };
+            radioBinary = new RadioButton() { Location = new System.Drawing.Point(240, 80), Text = "Binary" };
 
-            // textBoxLog
-            this.textBoxLog.Location = new System.Drawing.Point(12, 195);
-            this.textBoxLog.Multiline = true;
-            this.textBoxLog.Name = "textBoxLog";
-            this.textBoxLog.ReadOnly = true;
-            this.textBoxLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxLog.Size = new System.Drawing.Size(364, 100);
+            // TextBoxy
+            textBoxSend = new TextBox() { Location = new System.Drawing.Point(10, 110), Width = 300 };
+            textBoxReceive = new TextBox() { Location = new System.Drawing.Point(10, 140), Width = 300, Height = 100, Multiline = true, ScrollBars = ScrollBars.Vertical };
 
-            // Form1
-            this.ClientSize = new System.Drawing.Size(390, 310);
-            this.Controls.Add(this.comboBoxPorts);
-            this.Controls.Add(this.buttonRefresh);
-            this.Controls.Add(this.buttonConnect);
-            this.Controls.Add(this.textBoxSend);
-            this.Controls.Add(this.buttonSend);
-            this.Controls.Add(this.textBoxReceived);
-            this.Controls.Add(this.textBoxLog);
-            this.Name = "Form1";
-            this.Text = "RS-232 Communication";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            // Przyciski
+            buttonSend = new Button() { Location = new System.Drawing.Point(320, 110), Text = "Wyślij" };
+            buttonConnect = new Button() { Location = new System.Drawing.Point(580, 30), Text = "Połącz" };
+            buttonPing = new Button() { Location = new System.Drawing.Point(320, 140), Text = "PING" };
+
+            // Timeout
+            numericTimeout = new NumericUpDown() { Location = new System.Drawing.Point(470, 80), Maximum = 10000, Value = 1000 };
+            checkBoxUseTimeout = new CheckBox() { Location = new System.Drawing.Point(580, 80), Text = "Użyj Timeout" };
+
+            // Dodanie kontrolek
+            this.Controls.AddRange(new Control[]
+            {
+                labelPort, comboBoxPorts,
+                labelBaud, comboBoxBaudRate,
+                labelDataBits, comboBoxDataBits,
+                labelParity, comboBoxParity,
+                labelStopBits, comboBoxStopBits,
+                labelFlowControl, comboBoxFlowControl,
+                labelTerminator, comboBoxTerminator,
+                labelCustomTerminator, textBoxCustomTerminator,
+                labelMode, radioText, radioBinary,
+                labelTimeout, numericTimeout, checkBoxUseTimeout,
+                textBoxSend, textBoxReceive,
+                buttonSend, buttonConnect, buttonPing
+            });
+
+            // Okno
+            this.Text = "Konfigurator RS-232";
+            this.ClientSize = new System.Drawing.Size(700, 260);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && components != null)
+                components.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

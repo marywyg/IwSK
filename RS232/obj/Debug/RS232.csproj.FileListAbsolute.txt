@@ -7,3 +7,13 @@ C:\Users\marwy\source\repos\marywyg\RS232\bin\Debug\RS232.exe
 C:\Users\marwy\source\repos\marywyg\RS232\bin\Debug\RS232.pdb
 C:\Users\marwy\source\repos\marywyg\RS232\obj\Debug\RS232.exe
 C:\Users\marwy\source\repos\marywyg\RS232\obj\Debug\RS232.pdb
+C:\Users\marwy\Documents\GitHub\IwSK\RS232\bin\Debug\RS232.exe.config
+C:\Users\marwy\Documents\GitHub\IwSK\RS232\bin\Debug\RS232.exe
+C:\Users\marwy\Documents\GitHub\IwSK\RS232\bin\Debug\RS232.pdb
+C:\Users\marwy\Documents\GitHub\IwSK\RS232\obj\Debug\RS232.csproj.AssemblyReference.cache
+C:\Users\marwy\Documents\GitHub\IwSK\RS232\obj\Debug\RS232.Properties.Resources.resources
+C:\Users\marwy\Documents\GitHub\IwSK\RS232\obj\Debug\RS232.csproj.GenerateResource.cache
+C:\Users\marwy\Documents\GitHub\IwSK\RS232\obj\Debug\RS232.csproj.CoreCompileInputs.cache
+C:\Users\marwy\Documents\GitHub\IwSK\RS232\obj\Debug\RS232.exe
+C:\Users\marwy\Documents\GitHub\IwSK\RS232\obj\Debug\RS232.pdb
+C:\Users\marwy\Documents\GitHub\IwSK\RS232\obj\Debug\RS232CommunicationApp.Form1.resources
