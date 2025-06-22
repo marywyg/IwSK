@@ -1,0 +1,57 @@
+﻿## Visual Studio pliki
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Build output
+bin/
+obj/
+Debug/
+Release/
+
+## Pliki logów i tymczasowe
+*.log
+*.tlog
+*.tmp
+*.temp
+*.bak
+*.old
+
+## Dane z testów
+TestResults/
+*.VisualState.xml
+*.vsp
+*.vspscc
+*.vssscc
+
+## Dane systemowe
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+## Pliki publikacji ClickOnce
+publish/
+
+## Dane z Rider / JetBrains
+.idea/
+*.sln.iml
+
+## Pliki NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+*.nuspec
+
+## Inne IDE/edytory
+*.vscode/
+*.code-workspace
+
+## Pliki konfiguracji prywatnej
+appsettings.Development.json
+secrets.json
+
+## Ignoruj pliki z folderów `.vs`, `bin`, `obj`, oraz prywatne dane użytkownika
