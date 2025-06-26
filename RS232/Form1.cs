@@ -26,6 +26,7 @@ namespace RS232CommunicationApp
 
         private void buttonConnect_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Test");
             try
             {
                 serialPort.PortName = comboBoxPorts.Text;
